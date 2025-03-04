@@ -5,7 +5,12 @@
 #                                                          #
 ############################################################
 
+# script donwnloaded from Moore, T. E., Bagchi, R., Aiello‐Lammens, M. E., & Schlichting, C. D. (2018). 
+# Spatial autocorrelation inflates niche breadth–range size relationships. 
+# Global Ecology and Biogeography, 27(12), 1426-1436.
+# https://onlinelibrary.wiley.com/doi/10.1111/geb.12818
 
+# This script is not mine. It was made available with the above publication
 
 
 # Load libraries ----------------------------------------------------------
@@ -31,7 +36,7 @@ library(tidyterra)
 # para cada variable de interés. Yo hice con dos dimensiones solamentes  - PC1 y PC2 
 
 
-mat.a <- rast("TURASTER_AQUI") 
+mat.a <- rast("YOURRASTER.tif") 
 res(mat.a)
 
 if(F){
