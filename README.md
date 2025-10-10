@@ -56,5 +56,4 @@
 
 * Funding sources: NSF (grants 2225078 and 2225076). CONAHCyT Mexico, the U.S. Department of Energy, Office of Science, Office of Biological and Environmental Research, Earth and Environmental Systems Sciences Division and Data Management Program, under Award Number DEAC02- 05CH11231, as part of the Watershed Function Scientific Focus Area and the ExaShed project.
 
-* Please also check biendata.org
-* ![bien](bien.png)
+* Please also check biendata.org ![bien](bien.png)
