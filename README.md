@@ -34,7 +34,7 @@
 			- `cv` is the convex hull calculation value
 			- `type` depicts if the cv value is the observed or the simulated one.
 
-* `ranges_ds`: This is the range map file in a data-long format. This data is in .parquet format and and has 2791931904 rows. See the code *example_open_parquet.R* on how to open this file. It contains the collumns:
+* `ranges_ds`: This is the range map file in a data-long format. This data is in .parquet format and and has 2791931904 rows. See the code *example_open_arrow_dataset.R* on how to open this file. It contains the collumns:
   			- `ID` random assign ID numbers
   			- `x` and `y`are the centroid coordinates of species geographic ranges, in Mollweide projection
   			- `name` is the species name
@@ -50,13 +50,10 @@
   - `cv`: convex hull calculation value  
   - `type`: indicates whether the `cv` value is observed or simulated
 
-
-﻿
 * Code folder:
     * `Analysis_figures_stats_v2025_10_09_toRepo.R`: contains the codes to generate the figures and the results of the manuscript
-    * `example_open_parquet.R`: contains a example on how to open a large .parquet file
+    * `example_open_arrow_dataset.R`: contains a example on how to open a large .parquet file
 
- 
 * Software version:
    - R version 4.5.1 (2025-06-13 ucrt)
    - Platform: x86_64-w64-mingw32/x64
