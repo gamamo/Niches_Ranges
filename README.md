@@ -1,4 +1,4 @@
-# This is the repository of the article *General Laws of Biodiversity: Climatic Niches Predict Plant Range Size and Ecological Dominance Globally*, accepted for publication in PNAS
+## This is the repository of the article *General Laws of Biodiversity: Climatic Niches Predict Plant Range Size and Ecological Dominance Globally*, accepted for publication in PNAS
 
 - Citation: Moulatlet, G. M., Merow, C., Maitner, B., Boyle, B., Feng, X., Frazier, A. E., Hinojo-Hinojo, C., Newman, E. A., Roehrdanz, P. R., Song, L., Villalobos, F., Marquet, P. A., Svenning, J.-C., & Enquist, B. J. (2025). General laws of biodiversity: Climatic niches predict plant range size and ecological dominance globally. Proceedings of the National Academy of Sciences.
 ﻿
@@ -8,47 +8,41 @@
 ﻿
 - Responsible for writing code: Gabriel M. Moulatlet (mandaprogabriel@gmail.com)
 ﻿
-- Folders and files: There are two folders, data (which contain the data necessary to run the R codes) and code (which contain the R scripts).
+- Folders and files:
+	- There are two folders, data (which contain the data necessary to run the R codes) and code (which contain the R scripts).
 ﻿
 * Data folder:
-  * `data.csv`: contains the columns
-			- `species` which has species names
-			- `convex` which has the niche breadth calculations using the convex hull method
-			- `convex2` sqrt-root transformed convex
-			- `midX` and `midX` which have the centroid coordinates of species geographic ranges, in Mollweide projection
-			- `area` which has the geographic range area in km2
-			- `area10` log10-transformed area
-			- `region` defines the latitutinal zones, if the species range is located in tropical, temperate or in both tropical/temperate zones
-			- `band` which defines the longitudinal bands, if the species ranges is mostly in the America, Europe/Africa or Asia/Oceania
-			- `elevation` is the elevation at the centroid of the species ranges
-			- `higher_plant_group` is the taxonomic group, ferns and lycophytes, flowering plants, gymnosperms or bryophytes
-			- `family` is the botanical family
-			- `midX84` and `midX94` which have the centroid coordinates of species geographic ranges, in WGS84 projection
-			- `ele`  defines if the species is upland or lowland species, as set by the 1000 m.a.s.l. threshold
-			- `cLat`  defines the latitudinal bin every 5 degrees
-			- `source` only for tropical trees, indicates the dominance status, according to Cooper et al.2024 Nature Ecology and Evolution
+	* 	`data.csv`: contains the columns
+	  	-  `species` which has species names
+		- `convex` which has the niche breadth calculations using the convex hull method
+		- `convex2` sqrt-root transformed convex
+		- `midX` and `midX` which have the centroid coordinates of species geographic ranges, in Mollweide projection
+		- `area` which has the geographic range area in km2
+		- `area10` log10-transformed area
+		- `region` defines the latitutinal zones, if the species range is located in tropical, temperate or in both tropical/temperate zones
+		- `band` which defines the longitudinal bands, if the species ranges is mostly in the America, Europe/Africa or Asia/Oceania
+		- `elevation` is the elevation at the centroid of the species ranges
+		- `higher_plant_group` is the taxonomic group, ferns and lycophytes, flowering plants, gymnosperms or bryophytes
+		- `family` is the botanical family
+		- `midX84` and `midX94` which have the centroid coordinates of species geographic ranges, in WGS84 projection
+		- `ele`  defines if the species is upland or lowland species, as set by the 1000 m.a.s.l. threshold
+		- `cLat`  defines the latitudinal bin every 5 degrees
+		- `source` only for tropical trees, indicates the dominance status, according to Cooper et al.2024 Nature Ecology and Evolution
+	    
+	* ``ranges_ds``: This is the range map file in a data-long format as produced in April 2024. This data is in .parquet format and and has 2791931904 rows. See the code *example_open_arrow_dataset.R* on how to open this file. It contains the collumns:
+	  	- `ID` random assign ID numbers
+	  	- `x` and `y`are the centroid coordinates of species geographic ranges, in Mollweide projection
+	  	- `name` is the species name
+	  	- `higher_plant_group` is the taxonomic group, ferns and lycophytes, flowering plants, gymnosperms or bryophytes
+	  	- `type` indicates the modelling method: ppm, range bagging or points (see our methods in the main manuscript)
+	  	- `region` defines the latitutinal zones, if the species range is located in tropical, temperate or in both tropical/temperate zones
+		- `band` which defines the longitudinal bands, if the species ranges is mostly in the America, Europe/Africa or Asia/Oceania
 
-* `dataNULL.csv`: contains the columns
-			- `species` which has the species names
-			- `cnv` which is the convex hull simulation number
-			- `cv` is the convex hull calculation value
-			- `type` depicts if the cv value is the observed or the simulated one.
-
-* `ranges_ds`: This is the range map file in a data-long format. This data is in .parquet format and and has 2791931904 rows. See the code *example_open_arrow_dataset.R* on how to open this file. It contains the collumns:
-  			- `ID` random assign ID numbers
-  			- `x` and `y`are the centroid coordinates of species geographic ranges, in Mollweide projection
-  			- `name` is the species name
-  			- `higher_plant_group` is the taxonomic group, ferns and lycophytes, flowering plants, gymnosperms or bryophytes
-  			- `type` indicates the modelling method: ppm, range bagging or points (see our methods in the main manuscript)
-  			- `region` defines the latitutinal zones, if the species range is located in tropical, temperate or in both tropical/temperate zones
-			- `band` which defines the longitudinal bands, if the species ranges is mostly in the America, Europe/Africa or Asia/Oceani
-
-* `dataNULL.csv`: contains the columns
-
-  - `species`: species names  
-  - `cnv`: convex hull simulation number  
-  - `cv`: convex hull calculation value  
-  - `type`: indicates whether the `cv` value is observed or simulated
+	* `dataNULL.csv`: contains the columns
+	  - `species`: species names  
+	  - `cnv`: convex hull simulation number  
+	  - `cv`: convex hull calculation value  
+	  - `type`: indicates whether the `cv` value is observed or simulated
 
 * Code folder:
     * `Analysis_figures_stats_v2025_10_09_toRepo.R`: contains the codes to generate the figures and the results of the manuscript
