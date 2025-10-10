@@ -6,7 +6,7 @@
 ﻿
 - Abstract: A longstanding question in ecology asks whether or not species that achieve large geographic ranges also have large climatic niche breadths. Using a dataset of ~250,000 terrestrial plant species spanning diverse clades (bryophytes, ferns, gymnosperms, and flowering plants), we demonstrate a consistent positive relationship between geographic range size and climatic niche breadth across latitudinal and elevational gradients. This relationship holds across major phylogenetic groups, suggesting a general biogeographical rule for range size variation. Our findings indicate that latitudinal and elevational gradients in range size arise from selective pressures and species sorting based on climatic tolerance. Additionally, we show that species with larger range sizes tend to be ecologically dominant, supporting a long-suspected connection between range size, niche breadth, and local and regional abundance. Our results suggest a spectrum of dominance, where species with extensive geographic ranges and broader climatic tolerances tend to be more abundant. We posit that the relationship between range size, niche breadth, and ecological dominance is an emergent macroecological pattern that can be used for understanding and predicting the impacts of climate change on species distributions.
 ﻿
-- Responsible for collecting data and writing code: Gabriel M. Moulatlet (mandaprogabriel@gmail.com)
+- Responsible for writing code: Gabriel M. Moulatlet (mandaprogabriel@gmail.com)
 ﻿
 - Folders and files: There are two folders, data (which contain the data necessary to run the R codes) and code (which contain the R scripts).
 ﻿
@@ -46,7 +46,6 @@
    - Running under: Windows 11 x64 (build 26200)
    - Rstudio 2025.9.1.401 (Cucumberleaf Sunflower)
 
+* Funding sources: NSF (grants 2225078 and 2225076). CONAHCyT Mexico, the U.S. Department of Energy, Office of Science, Office of Biological and Environmental Research, Earth and Environmental Systems Sciences Division and Data Management Program, under Award Number DEAC02- 05CH11231, as part of the Watershed Function Scientific Focus Area and the ExaShed project.
 
-
-﻿
-Funding sources: NSF (grants 2225078 and 2225076). CONAHCyT Mexico, the U.S. Department of Energy, Office of Science, Office of Biological and Environmental Research, Earth and Environmental Systems Sciences Division and Data Management Program, under Award Number DEAC02- 05CH11231, as part of the Watershed Function Scientific Focus Area and the ExaShed project.
+* Please also check biendata.org
