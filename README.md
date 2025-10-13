@@ -34,11 +34,11 @@
 			- `ele`  defines if the species is upland or lowland species, as set by the 1000 m.a.s.l. threshold
 			- `cLat`  defines the latitudinal bin every 5 degrees
 			- `source` only for tropical trees, indicates the dominance status, according to Cooper et al.2024 Nature Ecology and Evolution
+  			- `n` the number of occurrence of some species
 		    
 		* ``ranges_ds``: This is the range map file in a data-long format as produced in April 2024. This data is in .parquet format and and has 2791931904 rows. See the code *example_open_arrow_dataset.R* on how to open this file. It contains the collumns:
-		  	- `ID` random assign ID numbers
+		  	- `ID` species ID numbers
 		  	- `x` and `y`are the centroid coordinates of species geographic ranges, in Mollweide projection
-		  	- `name` is the species name
 		  	- `higher_plant_group` is the taxonomic group, ferns and lycophytes, flowering plants, gymnosperms or bryophytes
 		  	- `type` indicates the modelling method: ppm, range bagging or points (see our methods in the main manuscript)
 		  	- `region` defines the latitutinal zones, if the species range is located in tropical, temperate or in both tropical/temperate zones
