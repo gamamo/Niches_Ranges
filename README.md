@@ -61,7 +61,7 @@
 	* Code folder:
 	    * `Analysis_figures_stats_v2025_10_09_toRepo.R`: contains the codes to generate the figures and the results of the manuscript
 	    * `example_open_arrow_dataset.R`: contains a example on how to open a large .parquet file
-     	*`	 	 
+     	* `calculateRangeAreas.R`: code example on how to calculate range areas
 
 * Software version:
    - R version 4.5.1 (2025-06-13 ucrt)
