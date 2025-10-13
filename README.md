@@ -19,7 +19,7 @@
 ﻿
 	* Data folder:
 		* 	`data.csv`: contains the columns
-		  	-  `species` which has species names
+		  	-  `species` which has species IDs
 			- `convex` which has the niche breadth calculations using the convex hull method
 			- `convex2` sqrt-root transformed convex
 			- `midX` and `midX` which have the centroid coordinates of species geographic ranges, in Mollweide projection
@@ -59,7 +59,7 @@
 
 	* Code folder:
 	    * `Analysis_figures_stats_v2025_10_09_toRepo.R`: contains the codes to generate the figures and the results of the manuscript
-	    * `example_open_arrow_dataset.R`: contains a example on how to open a large .parquet file
+	    * `example_open_arrow_dataset.R`: contains a example on how to open a large .parquet file	 
 
 * Software version:
    - R version 4.5.1 (2025-06-13 ucrt)
