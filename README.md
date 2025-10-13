@@ -18,8 +18,8 @@
 - There are two folders, data (which contain the data necessary to run the R codes) and code (which contain the R scripts).
 ﻿
 	* Data folder:
-		* 	`data.csv`: contains the columns
-		  	-  `species` which has species IDs
+		* 	`dataNOspecies.csv`: contains the columns
+		  	-  `ID` which has species ID codes
 			- `convex` which has the niche breadth calculations using the convex hull method
 			- `convex2` sqrt-root transformed convex
 			- `midX` and `midX` which have the centroid coordinates of species geographic ranges, in Mollweide projection
@@ -45,7 +45,7 @@
 			- `band` which defines the longitudinal bands, if the species ranges is mostly in the America, Europe/Africa or Asia/Oceania
 
 		* `dataNULL.csv`: contains the columns
-		  - `species`: species names  
+		  - `ID`: species ID codes  
 		  - `cnv`: convex hull simulation number  
 		  - `cv`: convex hull calculation value  
 		  - `type`: indicates whether the `cv` value is observed or simulated
