@@ -581,19 +581,8 @@ cp=  (nd1 +
   m1g+
   plot_layout(guides = 'collect',ncol = 3,axis_titles = "collect",tag_level = "new")+
   plot_annotation(tag_levels = list(c("a)","","b)","","c)")))
-ggsave(here("products","RESU_dist_region_allPlants_v3.jpeg"),
-       units="cm",dpi = 300,height = 15,width = 40,plot=cp)
 ggsave(here("products","RESU_dist_region_allPlants_v3.tiff"),
        units="cm",dpi = 300,height = 15,width = 40,plot=cp)
-
-
-
-(g5 + g0) / 
-  (m1g | (l1+n1))+
-  plot_annotation(tag_levels = "a", tag_suffix = ")")
-  ggsave(here("products","RESU_compositionFigure1_v1.jpeg"),
-         units="cm",dpi = 300,height = 30,width = 30)
-
 
 
 ### Bryophytes ------------------------------------------------------------------
@@ -778,7 +767,6 @@ m1bg <-db |>
 
 m1bg
 
-'Range size * 10,000 '('km'^2)
 
 
 ### Ferns ----------------------------------------------------------------
@@ -1132,19 +1120,6 @@ m1gg <-dg |>
   labs(y=expression("log10 [Range size"~(km^2)~"]"),x="sqrt (Niche breadth)",title="Gymnosperms")+
   scale_y_continuous(limits=c(1,8))+
   scale_x_continuous(limits=c(1,8))+
-  #annotate("text",label = expression(conditional~R^2 == 0.49),
-  #         x=0,y=8,size=5,hjust = 0)+
-  #legend
-  #annotate("segment", y = 2.5, yend = 2.5, x = 3.5, xend = 4.3, 
-  #         color = "#56b4e9",linewidth = 1)+
-  #annotate("segment", y = 2, yend = 2, x = 3.5, xend = 4.3, 
-  #         color = "#d55e00",linewidth = 1)+
-  #annotate("segment", y = 1.5, yend = 1.5, x = 3.5, xend = 4.3, 
-  #         color = "#009e73",linewidth = 1)+
-  
-  #annotate("text", label="Both", x = 5.2, y =2.5,size= 5)+
-  #annotate("text", label="Extratropical", x = 5.2, y =2,size=5)+
-  #annotate("text", label="Tropical", x = 5.2, y =1.5,size=5)
   
   #legend
   annotate("segment", y = 2.5, yend = 2.5, x = 5.5, xend = 6.1, 
@@ -1157,7 +1132,7 @@ m1gg <-dg |>
   annotate("text", label="slope = 0.39", x = 7.2, y =2.5,size= 5)+
   annotate("text", label="slope = 0.61", x = 7.2, y =2,size=5)+
   annotate("text", label="slope = 0.69", x = 7.2, y =1.5,size=5)+
-  annotate("text",label = "conditional~R^2==0.58",
+  annotate("text",label = "conditional~R^2==0.48",
            parse = TRUE,
              #expression(conditional~R^2 == 0.48),
            x=1,y=8,size=5,hjust = 0)+
@@ -1324,14 +1299,10 @@ m1ffg <-dff |>
         panel.grid = element_blank())+
   geom_line(aes(y=fit.c,col=region),linewidth=1)+
   scale_color_manual(values =c("#56b4e9","#d55e00","#009e73"))+
-  #geom_abline(intercept = 4.42, slope = 0.404,color="#56b4e9", linewidth=1)+ #Both
-  #geom_abline(intercept = 3.29, slope = 0.688,color="#d55e00", linewidth=1)+ #Extratropical
-  #geom_abline(intercept = 3.02, slope = 0.698,color="#009e73", linewidth=1)+ #Tropical
   labs(y=expression("log10 [Range size"~(km^2)~"]"),x="sqrt (Niche breadth)",title="Flowering plants")+
   scale_y_continuous(limits=c(1,8))+
   scale_x_continuous(limits=c(1,8))+
-  #annotate("text",label = expression(conditional~R^2 == 0.50),
-  #         x=0,y=8,size=5,hjust = 0)+
+
   #legend
   annotate("segment", y = 2.5, yend = 2.5, x = 5.5, xend = 6.1, 
            color = "#56b4e9",linewidth = 1)+
@@ -1364,8 +1335,6 @@ cp=m1bg + m1fg + m1ffg + m1gg +
   plot_layout(guides = 'collect')+
   plot_annotation(tag_levels = "a",tag_suffix = ")")&
   theme(legend.position="bottom")
-ggsave(here("products","RESU_model1_v3.jpeg"),
-       units="cm",dpi = 300,height = 30,width = 30,plot=cp)
 ggsave(here("products","RESU_model1_v3.tiff"),
        units="cm",dpi = 300,height = 30,width = 30, plot=cp)
 
@@ -1869,8 +1838,6 @@ iade <- d |>  filter(convex !=0 ) |>
   filter(maxConvex !=0) |> 
   ggplot(aes(x=cEle,y=mConvex,fill=ele2))+
   geom_col(alpha=0.6)+
-  #geom_line(aes(x=cLat,y=mConvex,color=region),linewidth=1)+
-  #facet_wrap(~fct_rev(ele2))+
   theme_bw()+
   theme(text=element_text(size=12,color="black"),
         legend.title = element_blank(),
@@ -2274,9 +2241,6 @@ m1bgET <-db |>
         panel.grid = element_blank())+
   geom_line(aes(y=fit.c,col=ele2),linewidth=1)+
   scale_color_manual(values =c("#56b4e9","#d55e00"))+
-  #geom_abline(intercept = 3.68, slope = 0.569,color="#56b4e9", linewidth=1)+ #Both
-  #geom_abline(intercept = 2.69, slope = 0.844,color="#d55e00", linewidth=1)+ #Extratropical
-  #geom_abline(intercept = 2.72, slope = 0.675,color="#009e73", linewidth=1)+ #Tropical
   labs(y=expression("log10 [Range size"~(km^2)~"]"),x="Niche breadth",title="Bryophytes",
        subtitle = "Tropical")+
   scale_y_continuous(limits=c(1,8))+
@@ -2304,9 +2268,6 @@ m1bgEE <-db |>
         panel.grid = element_blank())+
   geom_line(aes(y=fit.c,col=ele2),linewidth=1)+
   scale_color_manual(values =c("#56b4e9","#d55e00"))+
-  #geom_abline(intercept = 3.68, slope = 0.569,color="#56b4e9", linewidth=1)+ #Both
-  #geom_abline(intercept = 2.69, slope = 0.844,color="#d55e00", linewidth=1)+ #Extratropical
-  #geom_abline(intercept = 2.72, slope = 0.675,color="#009e73", linewidth=1)+ #Tropical
   labs(y=expression("log10 [Range size"~(km^2)~"]"),x="Niche breadth",title="Bryophytes",
        subtitle = "Extratropical")+
   scale_y_continuous(limits=c(1,8))+
@@ -4521,433 +4482,322 @@ vtAsN
   
 ## 4) Occurrence analysis ------------------------------------------------------
 
-if(F){
-a <- archive(here("temp","rawdata","rm_data_20230524.tar.gz"),)
-
-strings <- sort(c(dataGlobal$species))
-sps <- c(a$path)
-sps2 <- str_extract(sps, "(?<=/)[^/]+(?=\\.csv)")
-
-b <- which(sps2 %in% strings)
-a <- a[b,"path"]
-a <- unlist(a, use.names = FALSE)
-
-ex <- list()
-#for (i  in 1:length(a)){ #this loop needs to be run again starting from the 94457
-  for (i  in 76129:length(a)){ 
-    print(i)
-ex[[i]] <-  read_csv(archive_read(here("temp","rawdata","rm_data_20230524.tar.gz"),
-                                  a[i]),show_col_types = F) |> 
-  dplyr::select(species) |> 
-  count(species)
-}
-ex2 <- map_df(ex,~.x)
-write_csv(ex2,here("products","Occ_per_species_94457.csv"))
-
-a <- archive(here("temp","rawdata","rm_data_20230524_missing_spp.tar.gz"))
-
-strings <- sort(c(hdataGlobal$species))
-sps <- c(a$path)
-sps2 <- str_extract(sps, "(?<=/)[^/]+(?=\\.csv)")
-
-b <- which(sps2 %in% strings)
-a <- a[b,"path"]
-a <- unlist(a, use.names = FALSE)
-
-ex <- list()
-for (i  in 1:length(a)){
-  ex[[i]] <-  read_csv(archive_read(here("temp","rawdata","rm_data_20230524_missing_spp.tar.gz"),a[i])) |> dplyr::select(species) |> count(species)
-}
-ex2 <- map_df(ex,~.x)
-write_csv(ex2,here("products","Occ_missing_per_species.csv"))
-
-}
-
-summary(lm(docc$convex2~log10(docc$n)))
-
-
-occplotNB<- docc |> 
-  ggplot(aes(y=convex2,x=n))+
-  geom_point(color="gray70",alpha = 0.6)+
-  #facet_wrap(.~higher_plant_group)+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "none",
-        strip.background = element_rect(colour="white", fill="white"))+
-  scale_x_log10(labels=comma)+
-  scale_y_continuous(limits=c(0,8))+
-  # scale_y_log10()+
-  geom_smooth(method="lm",col="black")+
-  #scale_color_manual(values = "#56b4e9")+
-  labs(x=expression(log["10"] ~ "(Occurrences)"),y="Niche breadth")+
-   annotate("text",label = expression(R^2 == 0.21 ~ "," ~ p < 0.001 ),
-         x=1,y=8,size=5,hjust = 0)
-occplotNB
-
-summary(lm(docc$area10~log10(docc$n)))
-
-occplotRS<- docc|> 
-  #filter( band=="Tropical Asia") |> 
-  ggplot(aes(y=area10,x=n))+
-  geom_point(color="gray70",alpha = 0.4)+
-  #facet_wrap(.~higher_plant_group)+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "none",
-        strip.background = element_rect(colour="white", fill="white"))+
-  scale_x_log10(labels=comma)+
- scale_y_continuous(limits=c(2,8))+
-  # scale_y_log10()+
-  geom_smooth(method="lm",col="black",se=T)+
-  #scale_color_manual(values = "#56b4e9")+
-  labs(x=expression(log["10"] ~ "(Occurrences)"),
-       y=expression(log["10"] ~ "[Range size"~(km^2)~"]"))+
-  annotate("text",label = expression(R^2 == 0.30 ~ "," ~ p < 0.001 ),
-         x=1,y=8,size=5,hjust = 0)
-occplotRS
-
-# make composite graphic
-  cp=occplotRS + occplotNB +
-  plot_annotation(tag_levels = "a",tag_suffix = ")")
-ggsave(here("products","RESU_OCCR_all.jpeg"),units="cm",dpi=300,
-       width=30, height = 15, plot=cp)
+# Tropical Africa
   
-#join with occ points for hyperdominant species
+  daf <- data_hy |> 
+    filter(band=="Tropical Africa" & source=="Hyperdominants")
   
-occ <- read_csv(here("products","Occ_per_species_hyper.csv"))
-occ2 <- read_csv(here("products","Occ_missing_per_species_hyper.csv"))
-occ3 <- read_csv(here("products","Occ_per_species.csv"),show_col_types = F)
-occ <- rbind(occ,occ2)
-data_hy <- left_join(data_hy,occ, by="species")
-data_hy <- data_hy |> drop_na()
+  summary(lm(daf$convex2~log10(daf$n)))
+  
+  
+  occplotNBaf<- daf |> 
+    ggplot(aes(y=convex2,x=n))+
+    geom_point(color="gray70",alpha = 0.6)+
+    #facet_wrap(.~higher_plant_group)+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          text=element_text(size=20),
+          legend.title = element_blank(),
+          legend.position = "none",
+          strip.background = element_rect(colour="white", fill="white"))+
+    scale_x_log10(labels=comma)+
+    scale_y_continuous(limits=c(0,8))+
+    # scale_y_log10()+
+    geom_smooth(method="lm",col="black")+
+    #scale_color_manual(values = "#56b4e9")+
+    labs(x=expression(log["10"] ~ "(Occurrences)"),y="Niche breadth",title="Tropical Africa")+
+    annotate("text",label = expression(R^2 == 0.04 ~ "," ~ p == 0.01 ),
+             x=1,y=8,size=5,hjust = 0)
+  occplotNBaf
+  
+  summary(lm(daf$area10~log10(daf$n)))
+  
+  occplotRSaf<- daf|> 
+    #filter( band=="Tropical Asia") |> 
+    ggplot(aes(y=area10,x=n))+
+    geom_point(color="gray70",alpha = 0.6)+
+    #facet_wrap(.~higher_plant_group)+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          text=element_text(size=20),
+          legend.title = element_blank(),
+          legend.position = "none",
+          strip.background = element_rect(colour="white", fill="white"))+
+    scale_x_log10(labels=comma)+
+    scale_y_continuous(limits=c(2,8))+
+    # scale_y_log10()+
+    geom_smooth(method="lm",col="black")+
+    #scale_color_manual(values = "#56b4e9")+
+    labs(x=expression(log["10"] ~ "(Occurrences)"),y=expression(log["10"] ~ "[Range size"~(km^2)~"]"),
+         ,title="Tropical Africa")+
+    annotate("text",label = expression(R^2 == 0.13 ~ "," ~ p < 0.001 ),
+             x=1,y=8,size=5,hjust = 0)
+  occplotRSaf
+  
+  # Tropica America
+  
+  dam <- data_hy |> 
+    filter(band=="Tropical America" & source=="Hyperdominants")
+  
+  summary(lm(dam$convex2~log10(dam$n)))
+  
+  
+  occplotNBam<- dam |> 
+    ggplot(aes(y=convex2,x=n))+
+    geom_point(color="gray70",alpha = 0.6)+
+    #facet_wrap(.~higher_plant_group)+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          text=element_text(size=20),
+          legend.title = element_blank(),
+          legend.position = "none",
+          strip.background = element_rect(colour="white", fill="white"))+
+    scale_x_log10(labels=comma)+
+    scale_y_continuous(limits=c(0,8))+
+    # scale_y_log10()+
+    geom_smooth(method="lm",col="black")+
+    #scale_color_manual(values = "#56b4e9")+
+    labs(x=expression(log["10"] ~ "(Occurrences)"),y="Niche breadth",title="Tropical America")+
+    annotate("text",label = expression(R^2 == 0.36 ~ "," ~ p < 0.001 ),
+             x=1,y=8,size=5,hjust = 0)
+  occplotNBam
+  
+  summary(lm(dam$area10~log10(dam$n)))
+  
+  occplotRSam<- dam|> 
+    #filter( band=="Tropical Asia") |> 
+    ggplot(aes(y=area10,x=n))+
+    geom_point(color="gray70",alpha = 0.6)+
+    #facet_wrap(.~higher_plant_group)+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          text=element_text(size=20),
+          legend.title = element_blank(),
+          legend.position = "none",
+          strip.background = element_rect(colour="white", fill="white"))+
+    scale_x_log10(labels=comma)+
+    scale_y_continuous(limits=c(2,8))+
+    # scale_y_log10()+
+    geom_smooth(method="lm",col="black")+
+    #scale_color_manual(values = "#56b4e9")+
+    labs(x=expression(log["10"] ~ "(Occurrences)"),y=expression(log["10"]~" [Range size"~(km^2)~"]"),
+         ,title="Tropical America")+
+    annotate("text",label = expression(R^2 == 0.37 ~ "," ~ p < 0.001 ),
+             x=1,y=8,size=5,hjust = 0)
+  occplotRSam
+  
+  # Tropica Asia
+  
+  das <- data_hy |> 
+    filter(band=="Tropical Asia" & source=="Hyperdominants")
+  
+  summary(lm(das$convex2~log10(das$n)))
+  
+  occplotNBas<- das |> 
+    ggplot(aes(y=convex2,x=n))+
+    geom_point(color="gray70",alpha = 0.6)+
+    #facet_wrap(.~higher_plant_group)+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          text=element_text(size=20),
+          legend.title = element_blank(),
+          legend.position = "none",
+          strip.background = element_rect(colour="white", fill="white"))+
+    scale_x_log10(labels=comma)+
+    scale_y_continuous(limits=c(0,8))+
+    # scale_y_log10()+
+    geom_smooth(method="lm",col="black")+
+    #scale_color_manual(values = "#56b4e9")+
+    labs(x=expression(log["10"] ~ "(Occurrences)"),y="Niche breadth",title="Tropical Asia")+
+    annotate("text",label = expression(R^2 == 0.23 ~ "," ~ p < 0.001 ),
+             x=1,y=8,size=5,hjust = 0)
+  occplotNBas
+  
+  summary(lm(das$area10~log10(das$n)))
+  
+  occplotRSas<- das|> 
+    #filter( band=="Tropical Asia") |> 
+    ggplot(aes(y=area10,x=n))+
+    geom_point(color="gray70",alpha = 0.6)+
+    #facet_wrap(.~higher_plant_group)+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          text=element_text(size=20),
+          legend.title = element_blank(),
+          legend.position = "none",
+          strip.background = element_rect(colour="white", fill="white"))+
+    scale_x_log10(labels=comma)+
+    scale_y_continuous(limits=c(2,8))+
+    # scale_y_log10()+
+    geom_smooth(method="lm",col="black")+
+    #scale_color_manual(values = "#56b4e9")+
+    labs(x=expression(log["10"] ~ "(Occurrences)"),
+         y=expression(log["10"] ~"[Range size"~(km^2)~"]"),
+         ,title="Tropical Asia")+
+    annotate("text",label = expression(R^2 == 0.02 ~ "," ~ p == 0.06 ),
+             x=1,y=8,size=5,hjust = 0)
+  occplotRSas
+  
+  #make composite graph
+  occplotNBaf+ occplotNBam+ occplotNBas +
+    occplotRSaf+ occplotRSam + occplotRSas+
+    plot_annotation(tag_levels = "a",tag_suffix = ")")
+  ggsave(here("products","RESU_hyperdominants_OCCR_BAND_v2.jpeg"),units="cm",dpi=300,
+         width=40, height = 25)
+  
 
-# Tropica Africa
-
-daf <- data_hy |> 
-  filter(band=="Tropical Africa" & source=="Hyperdominants")
-
-summary(lm(daf$convex2~log10(daf$n)))
-
-
-occplotNBaf<- daf |> 
-  ggplot(aes(y=convex2,x=n))+
-  geom_point(color="gray70",alpha = 0.6)+
-  #facet_wrap(.~higher_plant_group)+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "none",
-        strip.background = element_rect(colour="white", fill="white"))+
-  scale_x_log10(labels=comma)+
-  scale_y_continuous(limits=c(0,8))+
-  # scale_y_log10()+
-  geom_smooth(method="lm",col="black")+
-  #scale_color_manual(values = "#56b4e9")+
-  labs(x=expression(log["10"] ~ "(Occurrences)"),y="Niche breadth",title="Tropical Africa")+
-  annotate("text",label = expression(R^2 == 0.04 ~ "," ~ p == 0.01 ),
-           x=1,y=8,size=5,hjust = 0)
-occplotNBaf
-
-summary(lm(daf$area10~log10(daf$n)))
-
-occplotRSaf<- daf|> 
-  #filter( band=="Tropical Asia") |> 
-  ggplot(aes(y=area10,x=n))+
-  geom_point(color="gray70",alpha = 0.6)+
-  #facet_wrap(.~higher_plant_group)+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "none",
-        strip.background = element_rect(colour="white", fill="white"))+
-  scale_x_log10(labels=comma)+
-  scale_y_continuous(limits=c(2,8))+
-  # scale_y_log10()+
-  geom_smooth(method="lm",col="black")+
-  #scale_color_manual(values = "#56b4e9")+
-  labs(x=expression(log["10"] ~ "(Occurrences)"),y=expression(log["10"] ~ "[Range size"~(km^2)~"]"),
-       ,title="Tropical Africa")+
-  annotate("text",label = expression(R^2 == 0.13 ~ "," ~ p < 0.001 ),
-           x=1,y=8,size=5,hjust = 0)
-occplotRSaf
-
-# Tropica America
-
-dam <- data_hy |> 
-  filter(band=="Tropical America" & source=="Hyperdominants")
-
-summary(lm(dam$convex2~log10(dam$n)))
-
-
-occplotNBam<- dam |> 
-  ggplot(aes(y=convex2,x=n))+
-  geom_point(color="gray70",alpha = 0.6)+
-  #facet_wrap(.~higher_plant_group)+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "none",
-        strip.background = element_rect(colour="white", fill="white"))+
-  scale_x_log10(labels=comma)+
-  scale_y_continuous(limits=c(0,8))+
-  # scale_y_log10()+
-  geom_smooth(method="lm",col="black")+
-  #scale_color_manual(values = "#56b4e9")+
-  labs(x=expression(log["10"] ~ "(Occurrences)"),y="Niche breadth",title="Tropical America")+
-  annotate("text",label = expression(R^2 == 0.36 ~ "," ~ p < 0.001 ),
-           x=1,y=8,size=5,hjust = 0)
-occplotNBam
-
-summary(lm(dam$area10~log10(dam$n)))
-
-occplotRSam<- dam|> 
-  #filter( band=="Tropical Asia") |> 
-  ggplot(aes(y=area10,x=n))+
-  geom_point(color="gray70",alpha = 0.6)+
-  #facet_wrap(.~higher_plant_group)+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "none",
-        strip.background = element_rect(colour="white", fill="white"))+
-  scale_x_log10(labels=comma)+
-  scale_y_continuous(limits=c(2,8))+
-  # scale_y_log10()+
-  geom_smooth(method="lm",col="black")+
-  #scale_color_manual(values = "#56b4e9")+
-  labs(x=expression(log["10"] ~ "(Occurrences)"),y=expression(log["10"]~" [Range size"~(km^2)~"]"),
-       ,title="Tropical America")+
-  annotate("text",label = expression(R^2 == 0.37 ~ "," ~ p < 0.001 ),
-           x=1,y=8,size=5,hjust = 0)
-occplotRSam
-
-# Tropica Asia
-
-das <- data_hy |> 
-  filter(band=="Tropical Asia" & source=="Hyperdominants")
-
-summary(lm(das$convex2~log10(das$n)))
-
-occplotNBas<- das |> 
-  ggplot(aes(y=convex2,x=n))+
-  geom_point(color="gray70",alpha = 0.6)+
-  #facet_wrap(.~higher_plant_group)+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "none",
-        strip.background = element_rect(colour="white", fill="white"))+
-  scale_x_log10(labels=comma)+
-  scale_y_continuous(limits=c(0,8))+
-  # scale_y_log10()+
-  geom_smooth(method="lm",col="black")+
-  #scale_color_manual(values = "#56b4e9")+
-  labs(x=expression(log["10"] ~ "(Occurrences)"),y="Niche breadth",title="Tropical Asia")+
-  annotate("text",label = expression(R^2 == 0.23 ~ "," ~ p < 0.001 ),
-           x=1,y=8,size=5,hjust = 0)
-occplotNBas
-
-summary(lm(das$area10~log10(das$n)))
-
-occplotRSas<- das|> 
-  #filter( band=="Tropical Asia") |> 
-  ggplot(aes(y=area10,x=n))+
-  geom_point(color="gray70",alpha = 0.6)+
-  #facet_wrap(.~higher_plant_group)+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "none",
-        strip.background = element_rect(colour="white", fill="white"))+
-  scale_x_log10(labels=comma)+
-  scale_y_continuous(limits=c(2,8))+
-  # scale_y_log10()+
-  geom_smooth(method="lm",col="black")+
-  #scale_color_manual(values = "#56b4e9")+
-  labs(x=expression(log["10"] ~ "(Occurrences)"),
-       y=expression(log["10"] ~"[Range size"~(km^2)~"]"),
-       ,title="Tropical Asia")+
-  annotate("text",label = expression(R^2 == 0.02 ~ "," ~ p == 0.06 ),
-           x=1,y=8,size=5,hjust = 0)
-occplotRSas
-
-#make composite graph
-occplotNBaf+ occplotNBam+ occplotNBas +
-  occplotRSaf+ occplotRSam + occplotRSas+
-  plot_annotation(tag_levels = "a",tag_suffix = ")")
-ggsave(here("products","RESU_hyperdominants_OCCR_BAND_v2.jpeg"),units="cm",dpi=300,
-       width=40, height = 25)
-
-
-
-#some stats
-data_hy |> dplyr::filter(source=="Hyperdominants" & band=="Tropical Africa") |> View()
-
-
-## 5) NULL models -------------------------------------------
-nf4p <- read_csv("dataNUll.csv")
-
-nf4p <- left_join(nf4p,d)
-
-df <- nf4p |> dplyr::select(cvn,cv,band, higher_plant_group,type) |> 
-  dplyr::filter(cv!=0) |> 
-  group_by(cvn,band, higher_plant_group,type) |> summarise(mean=mean(cv), 
-                                                              median=median(cv))
-ns <- ggplot(df,aes(x=mean, group=type))+
-  #geom_density(fill="skyblue3")+
-  geom_histogram(fill="gray68",alpha=0.6,color="black")+
-  geom_vline(data=subset(df, df$cvn=="convex"),aes(xintercept=mean),
-             color="red3",linetype="dashed")+
-  facet_grid(band~higher_plant_group)+
-  labs(x="Mean niche size", y="Frequency")+
-  #ggtitle("Coefficients log10(hypervolume) ~ log10(Geographic area)")+
-  theme_bw()+
+  ## 5) NULL models -------------------------------------------
+  
+ nfp4 <- read_csv("dataNUll.csv")
+  
+  df <- nf4p |> dplyr::select(cvn,cv,band, higher_plant_group,type) |> 
+    dplyr::filter(cv!=0) |> 
+    group_by(cvn,band, higher_plant_group,type) |> summarise(mean=mean(cv), 
+                                                             median=median(cv))
+  
+  ns <- ggplot(df,aes(x=mean, group=type))+
+    #geom_density(fill="skyblue3")+
+    geom_histogram(fill="gray68",alpha=0.6,color="black")+
+    geom_vline(data=subset(df, df$cvn=="convex"),aes(xintercept=mean),
+               color="red3",linetype="dashed")+
+    facet_grid(band~higher_plant_group)+
+    labs(x="Mean niche size", y="Frequency")+
+    #ggtitle("Coefficients log10(hypervolume) ~ log10(Geographic area)")+
+    theme_bw()+
     theme(panel.grid.major = element_blank(),
           panel.grid.minor = element_blank(),
           text=element_text(size=20),
           legend.title = element_blank(),
           legend.position = "bottom",
           strip.background = element_rect(colour="white", fill="white"))+
-  scale_y_continuous(expand=c(0,0))
-ns
-                             
-#### get coefs ------------------------------------------------------------
-
-coefs = as.data.frame(matrix(NA, ncol=4, nrow = length(grep("convex",colnames(nf4)))))
-colnames(coefs) = c("cv","a","b","R2")
-
-for(j in 1:length(grep("convex",colnames(nf4)))){
-  coefs[j,1] <- names(nf4)[grep("convex",colnames(nf4))[j]]
-  td <- nf4 |> dplyr::select(area,coefs[j,1])
-  td <- td[which(td[,2]!=0),]
-  td <- as.data.frame(td)
-  #model <- lm(td$convex~log10(td$area))
-  model <- lm(log10(td$area)~sqrt(td$convex))
-  s <- summary(model)
-  coefs[j,2] <- model$coefficients[1]
-  coefs[j,3] <- model$coefficients[2]
-  coefs[j,4] <- round(s$r.squared,2)
-}
-
-
-#get the quantiles
-a <- coefs|> dplyr::select(b)
-ci <-  a |> summarize(lower = quantile(b, probs = .05),
-                      upper = quantile(b, probs = .95))
-
-##### Make the graphic -----------------------------------------------
-cplot <- ggplot(coefs,aes(b))+
-  #geom_density(fill="skyblue3")+
-  geom_histogram(bins=30,fill="grey80",color="gray23")+
- geom_vline(xintercept = 0.59,color="red",linetype="solid",linewidth=1)+
- # geom_vline(xintercept = 1.5,color="red",linetype="solid",linewidth=1)+
-  geom_vline(data=ci, aes(xintercept = lower),color="grey20",linetype="dashed")+
-  geom_vline(data=ci, aes(xintercept = upper),color="grey20",linetype="dashed")+
- # labs(x="Slope values", y="Frequency", title="antes")+
-  labs(x="Slope values", y="Frequency")+
-  scale_x_continuous(limits = c(0,1))+
-  scale_y_continuous(limits = c(0,12))+
-  #ggtitle("Coefficients log10(hypervolume) ~ log10(Geographic area)")+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "bottom",
-        strip.background = element_rect(colour="white", fill="white"))+
-  annotate("text",label="z = 32, p < 0.0001",x=0.8,y=12,size=5)
-cplot
-
-
-ggsave(here("products","RESU_general_nullmodels_sqrt.jpeg"),units = "cm",
-       height = 15,width = 20)
-
-co <- coefs[-1,]
-mean(co$b)
-
-# Known mean and standard deviation of the population
-mu <- mean(co$b)  # Population mean
-sigma <- sd(co$b)  # Population standard deviation
-n <- length(co$b)
-
-# Value to test
-x <- coefs[1,"b"]
-
-z <- (x - mu) / (sigma / sqrt(n));print(z)
-p_value <- 2 * pnorm(-abs(z)); print(p_value)
-
-
-nf5 <- nf4 |> unite(class, c(band,higher_plant_group))
-length(unique(nf5$class))
-
-clist <- list()
-for (i in unique(nf5$class)){
-  temp <- subset(nf5, nf5$class==i)
+    scale_y_continuous(expand=c(0,0))
+  ns
   
-  temp2 <-  as.data.frame(matrix(NA, ncol=7, nrow = length(grep("convex",colnames(temp)))))
-  colnames(temp2) = c("cv","a","b","R2","class","ciL","ciH")
+  #### get coefs ------------------------------------------------------------
   
-  for(j in 1:length(grep("convex",colnames(temp)))){
-    temp2[j,1] <- names(temp)[grep("convex",colnames(temp))[j]]
-    td <- temp |> dplyr::select(area,temp2[j,1])
+  coefs = as.data.frame(matrix(NA, ncol=4, nrow = length(grep("convex",colnames(nf4)))))
+  colnames(coefs) = c("cv","a","b","R2")
+  
+  for(j in 1:length(grep("convex",colnames(nf4)))){
+    coefs[j,1] <- names(nf4)[grep("convex",colnames(nf4))[j]]
+    td <- nf4 |> dplyr::select(area,coefs[j,1])
     td <- td[which(td[,2]!=0),]
     td <- as.data.frame(td)
-    model <- lm(td[,2]~log10(td[,1]))
+    #model <- lm(td$convex~log10(td$area))
+    model <- lm(log10(td$area)~sqrt(td$convex))
     s <- summary(model)
-    temp2[j,2] <- model$coefficients[1]
-    temp2[j,3] <- model$coefficients[2]
-    temp2[j,4] <- round(s$r.squared,2)
-    temp2[j,5] <- i
+    coefs[j,2] <- model$coefficients[1]
+    coefs[j,3] <- model$coefficients[2]
+    coefs[j,4] <- round(s$r.squared,2)
   }
   
-  a <- temp2|> dplyr::select(b)
   
-  temp2[,c("ciL","ciH")]<-  a |> summarize(lower = quantile(b, probs = .05),
+  #get the quantiles
+  a <- coefs|> dplyr::select(b)
+  ci <-  a |> summarize(lower = quantile(b, probs = .05),
                         upper = quantile(b, probs = .95))
-  clist[[i]] <- temp2
   
-}
-coefs_c <- map_df(clist,~.x)
-coefs_c <- coefs_c |> separate_wider_delim(class, delim="_",names=c("band","HPG"))
-
-cplot2 <- ggplot(coefs_c,aes(b))+
-  #geom_density(fill="skyblue3")+
-  geom_histogram(bins=20,fill="grey",color="gray23")+
-  facet_grid(band~HPG)+
-  geom_vline(data=subset(coefs_c, coefs_c$cv=="convex"),aes(xintercept = b),color="red",linetype="solid")+
-  geom_vline(data=coefs_c, aes(xintercept = ciL),color="grey20",linetype="dashed")+
-  geom_vline(data=coefs_c, aes(xintercept = ciH),color="grey20",linetype="dashed")+
+  ##### Make the graphic -----------------------------------------------
+  cplot <- ggplot(coefs,aes(b))+
+    #geom_density(fill="skyblue3")+
+    geom_histogram(bins=30,fill="grey80",color="gray23")+
+    geom_vline(xintercept = 0.59,color="red",linetype="solid",linewidth=1)+
+    # geom_vline(xintercept = 1.5,color="red",linetype="solid",linewidth=1)+
+    geom_vline(data=ci, aes(xintercept = lower),color="grey20",linetype="dashed")+
+    geom_vline(data=ci, aes(xintercept = upper),color="grey20",linetype="dashed")+
+    # labs(x="Slope values", y="Frequency", title="antes")+
+    labs(x="Slope values", y="Frequency")+
+    scale_x_continuous(limits = c(0,1))+
+    scale_y_continuous(limits = c(0,12))+
+    #ggtitle("Coefficients log10(hypervolume) ~ log10(Geographic area)")+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          text=element_text(size=20),
+          legend.title = element_blank(),
+          legend.position = "bottom",
+          strip.background = element_rect(colour="white", fill="white"))+
+    annotate("text",label="z = 32, p < 0.0001",x=0.8,y=12,size=5)
+  cplot
   
-  labs(x="Slope of null model (beta coefficient)", y="Frequency")+
-  #ggtitle("Coefficients log10(hypervolume) ~ log10(Geographic area)")+
-  theme_bw()+
-  theme(panel.grid.major = element_blank(),
-        panel.grid.minor = element_blank(),
-        text=element_text(size=20),
-        legend.title = element_blank(),
-        legend.position = "bottom",
-        strip.background = element_rect(colour="white", fill="white"))
-
-cplot2
-ggsave(here("products","RESU_species_nullmodels.jpeg"),units = "cm",
-       height = 25,width = 30)
-
-
+  ggsave(here("products","RESU_general_nullmodels_sqrt.jpeg"),units = "cm",
+         height = 15,width = 20)
+  
+  co <- coefs[-1,]
+  mean(co$b)
+  
+  # Known mean and standard deviation of the population
+  mu <- mean(co$b)  # Population mean
+  sigma <- sd(co$b)  # Population standard deviation
+  n <- length(co$b)
+  
+  # Value to test
+  x <- coefs[1,"b"]
+  
+  z <- (x - mu) / (sigma / sqrt(n));print(z)
+  p_value <- 2 * pnorm(-abs(z)); print(p_value)
+  
+  
+  nf5 <- nf4 |> unite(class, c(band,higher_plant_group))
+  length(unique(nf5$class))
+  
+  clist <- list()
+  for (i in unique(nf5$class)){
+    temp <- subset(nf5, nf5$class==i)
+    
+    temp2 <-  as.data.frame(matrix(NA, ncol=7, nrow = length(grep("convex",colnames(temp)))))
+    colnames(temp2) = c("cv","a","b","R2","class","ciL","ciH")
+    
+    for(j in 1:length(grep("convex",colnames(temp)))){
+      temp2[j,1] <- names(temp)[grep("convex",colnames(temp))[j]]
+      td <- temp |> dplyr::select(area,temp2[j,1])
+      td <- td[which(td[,2]!=0),]
+      td <- as.data.frame(td)
+      model <- lm(td[,2]~log10(td[,1]))
+      s <- summary(model)
+      temp2[j,2] <- model$coefficients[1]
+      temp2[j,3] <- model$coefficients[2]
+      temp2[j,4] <- round(s$r.squared,2)
+      temp2[j,5] <- i
+    }
+    
+    a <- temp2|> dplyr::select(b)
+    
+    temp2[,c("ciL","ciH")]<-  a |> summarize(lower = quantile(b, probs = .05),
+                                             upper = quantile(b, probs = .95))
+    clist[[i]] <- temp2
+    
+  }
+  coefs_c <- map_df(clist,~.x)
+  coefs_c <- coefs_c |> separate_wider_delim(class, delim="_",names=c("band","HPG"))
+  
+  cplot2 <- ggplot(coefs_c,aes(b))+
+    #geom_density(fill="skyblue3")+
+    geom_histogram(bins=20,fill="grey",color="gray23")+
+    facet_grid(band~HPG)+
+    geom_vline(data=subset(coefs_c, coefs_c$cv=="convex"),aes(xintercept = b),color="red",linetype="solid")+
+    geom_vline(data=coefs_c, aes(xintercept = ciL),color="grey20",linetype="dashed")+
+    geom_vline(data=coefs_c, aes(xintercept = ciH),color="grey20",linetype="dashed")+
+    
+    labs(x="Slope of null model (beta coefficient)", y="Frequency")+
+    #ggtitle("Coefficients log10(hypervolume) ~ log10(Geographic area)")+
+    theme_bw()+
+    theme(panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          text=element_text(size=20),
+          legend.title = element_blank(),
+          legend.position = "bottom",
+          strip.background = element_rect(colour="white", fill="white"))
+  
+  cplot2
+  ggsave(here("products","RESU_species_nullmodels.jpeg"),units = "cm",
+         height = 25,width = 30)
+  
+  
+  
