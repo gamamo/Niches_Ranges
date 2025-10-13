@@ -56,10 +56,12 @@
      	* `MAP_niche_FERNS.tiff`: map of all ferns and lycophytes species climatic niche breadth
       	* `MAP_niche_GYMNOSPERMS.tiff`: map of all gymnosperm species climatic niche breadth
       	* `MAP_niche_ANGIOSPERMS.tiff`: map of all angiosperm species climatic niche breadth
+      	* `range_example.tiff`: Species range to be used to calculate the range area
 
 	* Code folder:
 	    * `Analysis_figures_stats_v2025_10_09_toRepo.R`: contains the codes to generate the figures and the results of the manuscript
-	    * `example_open_arrow_dataset.R`: contains a example on how to open a large .parquet file	 
+	    * `example_open_arrow_dataset.R`: contains a example on how to open a large .parquet file
+     	*`	 	 
 
 * Software version:
    - R version 4.5.1 (2025-06-13 ucrt)
