@@ -1,0 +1,10 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+title: "Data of General laws of biodiversity: Climatic niches predict plant range size and ecological dominance globally"
+authors:
+  - family-names: "Moulatlet"
+    given-names: "Gabriel M."
+version: "1.0.0"
+doi: 10.5281/zenodo.17467476
+date-released: 2025-10-28
+url: "https://github.com/gamamo/Niches_Ranges"
